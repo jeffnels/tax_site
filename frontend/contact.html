@@ -25,6 +25,17 @@
 <link href="assets/css/style.css" rel="stylesheet">
 <link href="assets/css/responsive.css" rel="stylesheet">
 
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "l5_I7a3KjFrD1HQbw",
+      });
+   })();
+</script>
+
 </head>
 
 
@@ -38,7 +49,6 @@
         <div class="layer layer-two"><span class="overlay"></span></div>        
         <div class="layer layer-three"><span class="overlay"></span></div>        
     </div>
-
 
     <!-- page-direction -->
     <div class="page_direction">
@@ -318,10 +328,10 @@
                     <h2>Send Us A Messsage</h2>
                     <p>Free consultation for those with tax debt <br />exceeding $100,000.</p>
                 </div>
-                <form method="post" action="sendemail.php" id="contact-form" class="default-form"> 
+                <form id="contact-form" class="default-form"> 
                     <div class="row clearfix">
                         <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                            <input type="text" name="username" placeholder="Your Name" required="Enter your name">
+                            <input type="text" name="name" placeholder="Your Name" required="Enter your name">
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                             <input type="email" name="email" placeholder="Email address" required="Enter your email">

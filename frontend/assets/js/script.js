@@ -2,16 +2,51 @@
 	
 	"use strict";
 
-	$(document).ready(function() {
-    var currentPath = window.location.pathname.split("/").pop(); 
-    if (currentPath === "") currentPath = "index.html";
+	$(document).ready(function () {
+    $('#contact-form').on('submit', function (e) {
+      e.preventDefault();
 
-    $('.main-menu navigation li a').each(function() {
-      var link = $(this).attr('href');
-      if (link === currentPath) {
-        $(this).addClass('current');
-      }
+      const formData = {
+        name: $('input[name="name"]').val(),
+        email: $('input[name="email"]').val(),
+        phone: $('input[name="phone"]').val(),
+        subject: $('input[name="subject"]').val(),
+        message: $('textarea[name="message"]').val()
+      };
+
+      // Replace these with your actual EmailJS service/template IDs
+      emailjs.send("service_co9mqbx", "template_cvhyznr", formData)
+        .then(function (response) {
+          alert("Message sent successfully!");
+          $('#contact-form')[0].reset();
+        }, function (error) {
+          alert("Failed to send message: " + JSON.stringify(error));
+        });
     });
+  });
+
+	$(document).ready(function () {
+    // Check if newsletter form exists
+    if ($('.newsletter-form').length) {
+      $('.newsletter-form').on('submit', function (e) {
+        e.preventDefault();
+
+        const $form = $(this);
+        const formData = {
+          name: $form.find('input[name="name"]').val(),
+          email: $form.find('input[name="email"]').val()
+        };
+
+        emailjs.send("service_co9mqbx", "template_cvhyznr", formData)
+          .then(function (response) {
+            alert("Thanks! We've received your message.");
+            $form[0].reset();
+          }, function (error) {
+            alert("Oops, failed to send message.");
+            console.error("EmailJS error:", error);
+          });
+      });
+    }
   });
 
 
