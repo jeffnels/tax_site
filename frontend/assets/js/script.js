@@ -2,6 +2,18 @@
 	
 	"use strict";
 
+	$(document).ready(function() {
+    var currentPath = window.location.pathname.split("/").pop(); 
+    if (currentPath === "") currentPath = "index.html";
+
+    $('.main-menu navigation li a').each(function() {
+      var link = $(this).attr('href');
+      if (link === currentPath) {
+        $(this).addClass('current');
+      }
+    });
+  });
+
 
 	//Hide Loading Box (Preloader)
 	function handlePreloader() {
