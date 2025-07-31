@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
-   <title>Govotax</title>
+    <title>Govotax</title>
 
     <!-- Fav Icon -->
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
@@ -26,8 +26,16 @@
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/responsive.css" rel="stylesheet">
 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init({
+                publicKey: "l5_I7a3KjFrD1HQbw",
+            });
+        })();
+    </script>
 </head>
-
 
 <!-- page wrapper -->
 
@@ -1026,7 +1034,7 @@
                                     <div class="text">
                                         <p>Get instant and fast support</p>
                                     </div>
-                                    <form action="contact.html" method="post" class="newsletter-form">
+                                    <form class="newsletter-form">
                                         <div class="form-group">
                                             <i class="far fa-user"></i>
                                             <input type="text" name="name" placeholder="Your Name" required="">
